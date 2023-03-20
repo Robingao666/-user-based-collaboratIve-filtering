@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body style="height: 100%; margin: 0">
+    {% raw %}
+    <div id="app">
+    <form>
+        请输入用户id
+        <input type="text" v-model="userId">
+        <input type="button" value="提交" @click="submit">
+        <!-- <input type="submit" value="提交"> -->
+    </form>
+    
+    
+    
+    </div>
+    {% endraw %}
+<script type = "text/javascript">
+    new Vue({
+  el: '#app',
+  data: {
+    userId:0,
+    data1:''
+  },
+  methods:{
+
+            submit: function(event){
+                event.preventDefault();
+                axios({
+            method:'get',
+            params:{
+                userId:this.userId,
+                },
+            url:'http://localhost:5000/recommend'
+        }).then(function(data){
+            this.data1 = data.data.data1;
+            alert(this.data1[0]);
+            alert(this.data1[1]);
+            alert(this.data1[2]);
+            alert(this.data1[3]);
+            alert(this.data1[4]);
+            
+            
+            });
+            }
+        }
+})
+
+</script>
+</body>
+</html>

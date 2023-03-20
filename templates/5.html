@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<p id="app">
+    {% for k,v in data1.items() %}
+    <h1 align="center">{{k}}</h1><br/>
+    {% for movie in v%}
+    <p align="center">Top{{loop.index}} {{movie}}</p><br/>
+    {% endfor %}
+    {% endfor %}
+</p>
+
+</html>

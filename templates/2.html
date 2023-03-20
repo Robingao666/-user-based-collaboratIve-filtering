@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.bootcss.com/echarts/4.1.0.rc2/echarts.min.js"></script>
+</head>
+<body style="height: 100%; margin: 0">
+    <div id="container" style="height: 100%"></div>
+    <script>
+        var dom = document.getElementById("container");
+        var myChart = echarts.init(dom);
+        
+        var data2 = {{data2}};
+        option = {
+  title: {
+    text: 'World Population'
+  },
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'shadow'
+    }
+  },
+  legend: {},
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '3%',
+    containLabel: true
+  },
+  xAxis: {
+    type: 'value',
+    boundaryGap: [0, 0.01]
+  },
+  yAxis: {
+    type: 'category',
+    data: ['Crime', 'Horror', 'War', 'IMAX', 'Drama', 'Children', 'Romance', 'Comedy', 'Sci-Fi', 'Adventure', '(no genres listed)', 'Documentary', 'Fantasy', 'Western', 'Musical', 'Thriller', 'Animation', 'Mystery', 'Action', 'Film-Noir']
+  },
+  series: [
+    {
+      name: '每种类型的电影数',
+      type: 'bar',
+      data: data2
+    }
+  ]
+};
+myChart.setOption(option);
+    </script>
+</body>
+</html>
